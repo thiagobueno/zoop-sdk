@@ -63,13 +63,15 @@ $client = new ZoopClient(
 
 O segundo parâmetro passado para SDK é opcional e pode ser utilizado para guardar na zoop (e recuperar posteriormente via webhook) o id do pagamento local na sua aplicação.
 
-seu_ID_VENDA é um ID gerado pela sua aplicação.
+SEU_ID_VENDA é um ID gerado pela sua aplicação.
+
+O valor deve ser um número inteiro positivo em centavos, por exemplo, 4950 para R$ 49,50
 
 ```php
 try {
     $pagamento = $client->payCreditCard(array(
         'description' => 'Plano Nitro',
-        'amount' => 49.99,
+        'amount' => 4950,
         'card' => array(
             'card_number' => '5201561050024014',
             'holder_name' => 'João Silva',
@@ -77,7 +79,7 @@ try {
             'expiration_year' => '2018',
             'security_code' => '123',
         )
-    ), 'seu_ID_VENDA');
+    ), 'SEU_ID_VENDA');
     print_r($pagamento);
 } catch(\Exception $e){
     echo $e->getMessage() . PHP_EOL;
@@ -88,19 +90,21 @@ try {
 
 Para gerar um Boleto primeiro você deve registrar um [comprador](#compradores) e adicioná-lo no lugar de ID_DO_COMPRADOR
 
-seu_ID_VENDA é um ID gerado pela sua aplicação.
+SEU_ID_VENDA é um ID gerado pela sua aplicação.
+
+O valor deve ser um número inteiro positivo em centavos, por exemplo, 4950 para R$ 49,50
 
 ```php
 try {
     $boleto = $client->generateTicket(array(
-        'amount' => 42.99,
+        'amount' => 4950,
         'logo' => 'https://dashboard.zoop.com.br/assets/imgs/logo-zoop.png',
         'description' => 'Pagamento Zoop',
         'top_instructions' => 'Instruções de pagamento',
         'body_instructions' => 'Não receber após a data de vencimento.',
         'expiration_date' => (string)date('Y-m-d'),
         'payment_limit_date' => (string)date('Y-m-d')
-    ),  'ID_DO_COMPRADOR', 'seu_ID_VENDA');
+    ),  'ID_DO_COMPRADOR', 'SEU_ID_VENDA');
     print_r($boleto);
 } catch(\Exception $e){
     echo $e->getMessage() . PHP_EOL;

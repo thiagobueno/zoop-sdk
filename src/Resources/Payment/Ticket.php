@@ -34,7 +34,7 @@ class Ticket extends Zoop
     private function prepareTicket(array $ticket, $userId)
     {
         return [
-            'amount' => ($ticket['amount'] * 100),
+            'amount' => $ticket['amount'],
             'currency' => 'BRL',
             'logo' => array_key_exists('logo', $ticket) ? $ticket['logo'] : null,
             'description' => $ticket['description'],

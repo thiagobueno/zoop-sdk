@@ -33,7 +33,7 @@ class CreditCard extends Zoop
     private function prepareCreditCard(array $card, $referenceId = null)
     {
         $payment = array(
-            'amount' => ($card['amount'] * 100),
+            'amount' => $card['amount'],
             'currency' => 'BRL',
             'description' => $card['description'],
             'on_behalf_of' => $this->configurations['auth']['on_behalf_of'],
@@ -41,7 +41,7 @@ class CreditCard extends Zoop
             'payment_type' => 'credit',
             'source' => array(
                 'usage' => 'single_use',
-                'amount' => ($card['amount'] * 100),
+                'amount' => $card['amount'],
                 'currency' => 'BRL',
                 'type' => 'card',
                 'card' => array(
