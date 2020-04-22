@@ -44,7 +44,8 @@ abstract class Zoop
             WebHook\WebHook::class,
             MarketPlace\Buyers::class,
             Payment\CreditCard::class,
-            Payment\Ticket::class
+            Payment\Ticket::class,
+            Transfers\Transfers::class
         ];
     }
 

@@ -10,6 +10,10 @@
     ],
     "authors": [
         {
+            "name": "Thiago Bueno",
+            "email": "thiago@nerdetcetera.com"
+        },
+        {
             "name": "Ítalo Araújo",
             "email": "italoaraujo@gmail.com"
         }
@@ -18,7 +22,7 @@
         "optimize-autoloader": true
     },
     "require": {
-        "php": ">=5.5",
+        "php": ">=5.6",
         "ext-curl": "*",
         "ext-json": "*",
         "psr/log": "^1.1",

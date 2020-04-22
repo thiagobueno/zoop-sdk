@@ -30,11 +30,18 @@ use Zoop\Zoop;
  * @method \Zoop\WebHook\WebHook createWebHook(string $url, string $description)
  * @method \Zoop\WebHook\WebHook deleteWebHook(string $webhookId)
  * @method \Zoop\WebHook\WebHook webHookListen()
- * 
+ *
+ * @method \Zoop\Transfers\Transfers getTransfers(string $sellerId)
+ * @method \Zoop\Transfers\Transfers getAllTransfers()
+ * @method \Zoop\Transfers\Transfers getTransfer(string $transferId)
+ * @method \Zoop\Transfers\Transfers getTransactions(string $transferId)
  * 
  * @author italodeveloper <italoaraujo788@gmail.com>
  * @package ZoopClient
  * @version 1.0.0
+ * 
+ * @author thiago@nerdetcetera.com
+ * @version 1.3
  */
 class ZoopClient extends Zoop 
 {

@@ -23,6 +23,11 @@ Você pode acessar a documentação oficial da Zoop acessando esse [link](https:
   - [Listando todos os compradores do Markeplace](#listando-todos-os-compradores-do-markeplace)
   - [Recuperando detalhes do comprador](#recuperando-detalhes-do-comprador)
   - [Deletando comprador do Marketplace](#deletando-comprador-do-marketplace)
+- [Transferências](#transferencias)
+  - [Listar transferências por seller](#listar-transferencias-por-seller)
+  - [Listar transferências por marketplace](#listar-transferencias-por-marketplace)
+  - [Recuperar detalhes de transferência](#recuperar-detalhes-de-transferencia)
+  - [Listar transações associadas a transferência](#listar-transacoes-associadas-a-transferencia)
 - [WebHook](#webhook)
   - [Instanciando seu cliente](#instanciando-seu-cliente)
   - [Criando o Webhook (POST)](#criando-o-webhook-post)
@@ -220,6 +225,54 @@ try {
     echo $e->getMessage() . PHP_EOL;
 }
 ```
+
+
+## Transferências
+
+#### Listar transferências por seller
+
+```php
+try {
+    $transactions = $client->getTransfers($sellerId);
+    print_r($transactions);
+} catch(\Exception $e){
+    echo $e->getMessage() . PHP_EOL;
+}
+```
+
+#### Listar transferências por marketplace
+
+```php
+try {
+    $transactions = $client->getAllTransfers();
+    print_r($transactions);
+} catch(\Exception $e){
+    echo $e->getMessage() . PHP_EOL;
+}
+```
+
+#### Recuperar detalhes de transferência
+
+```php
+try {
+    $transactions = $client->getTransfer($transferId);
+    print_r($transactions);
+} catch(\Exception $e){
+    echo $e->getMessage() . PHP_EOL;
+}
+```
+
+#### Listar transações associadas a transferência
+
+```php
+try {
+    $transactions = $client->getTransactions($transferId);
+    print_r($transactions['transactions']);
+} catch(\Exception $e){
+    echo $e->getMessage() . PHP_EOL;
+}
+```
+
 
 ## WebHook
 
