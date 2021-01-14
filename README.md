@@ -99,6 +99,8 @@ SEU_ID_VENDA é um ID gerado pela sua aplicação.
 
 O valor deve ser um número inteiro positivo em centavos, por exemplo, 4950 para R$ 49,50
 
+Aplicando multa, juros e descontos, você pode verificar todas as opções e regras em https://docs.zoop.co/docs/multa-juros-e-descontos
+
 ```php
 try {
     $boleto = $client->generateTicket(array(
@@ -108,7 +110,21 @@ try {
         'top_instructions' => 'Instruções de pagamento',
         'body_instructions' => 'Não receber após a data de vencimento.',
         'expiration_date' => (string)date('Y-m-d'),
-        'payment_limit_date' => (string)date('Y-m-d')
+        'payment_limit_date' => (string)date('Y-m-d'),
+        'late_fee' => [
+            'mode' => 'PERCENTAGE',
+            'percentage' => 2
+        ],
+        'interest' => [
+            'mode' => 'MONTHLY_PERCENTAGE',
+            'percentage' => 1,
+            'start_date' => (string)date('Y-m-d'),
+        ],
+        'discount' => [
+            'mode' => 'FIXED',
+            'amount' => 100,
+            'limit_date' => (string)date('Y-m-d'),
+        ],
     ),  'ID_DO_COMPRADOR', 'SEU_ID_VENDA');
     print_r($boleto);
 } catch(\Exception $e){
@@ -174,16 +190,16 @@ try {
 ```php
 try {
     $comprador = $client->createBuyer([
-        'first_name' => 'Ricardo Pedrosa',
-        'taxpayer_id' => '11836128770', /* CPF */
-        'email' => 'ricardo.pedrosa@zoop.co',
+        'first_name' => 'João das Neves',
+        'taxpayer_id' => '30621143049', /* CPF */
+        'email' => 'joaoneves@norte.com',
         'address' => [
-            'line1' => 'Av Americas, 500',
-            'line2' => 'Citta América',
-            'neighborhood' => 'Barra da Tijuca',
-            'city' => 'Rio de Janeiro',
-            'state' => 'RJ',
-            'postal_code' => '22845046',
+            'line1' => 'Rua Lobo, 999',
+            'line2' => 'Vento Cinzento',
+            'neighborhood' => 'Vila Carrao',
+            'city' => 'São Paulo',
+            'state' => 'SP',
+            'postal_code' => '03424030',
             'country_code' => 'BR'
         ],
     ]);
@@ -351,8 +367,3 @@ try {
     echo $e->getMessage() . PHP_EOL;
 }
 ```
-
-
-## Autor
-
-Originalmente desenvolvido por [italodeveloper](https://github.com/italodeveloper) e contribuidores.

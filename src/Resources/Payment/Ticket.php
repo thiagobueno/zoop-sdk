@@ -44,6 +44,11 @@ class Ticket extends Zoop
                 'body_instructions' => $ticket['body_instructions'],
                 'expiration_date' => $ticket['expiration_date'],
                 'payment_limit_date' => $ticket['payment_limit_date'],
+                'billing_instructions' => [
+                    'late_fee' => array_key_exists('late_fee', $ticket) ? $ticket['late_fee'] : null,
+                    'interest' => array_key_exists('interest', $ticket) ? $ticket['interest'] : null,
+                    'discount' => array_key_exists('discount', $ticket) ? $ticket['discount'] : null,
+                ],
             ],
             'capture' => false,
             'on_behalf_of' => $this->configurations['auth']['on_behalf_of'],
