@@ -207,18 +207,6 @@
         },
         {
             "name": "guzzlehttp/psr7",
-<<<<<<< HEAD
-            "version": "1.8.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/psr7.git",
-                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/337e3ad8e5716c15f9657bd214d16cc5e69df268",
-                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268",
-=======
             "version": "1.9.0",
             "source": {
                 "type": "git",
@@ -229,7 +217,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/guzzle/psr7/zipball/e98e3e6d4f86621a9b75f623996e6bbdeb4b9318",
                 "reference": "e98e3e6d4f86621a9b75f623996e6bbdeb4b9318",
->>>>>>> c358bc97b396d841cc7ec2b75102b5a68468ed2b
                 "shasum": ""
             },
             "require": {
@@ -250,11 +237,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
-                    "dev-master": "1.7-dev"
-=======
                     "dev-master": "1.9-dev"
->>>>>>> c358bc97b396d841cc7ec2b75102b5a68468ed2b
                 }
             },
             "autoload": {
@@ -314,11 +297,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-<<<<<<< HEAD
-                "source": "https://github.com/guzzle/psr7/tree/1.8.5"
-=======
                 "source": "https://github.com/guzzle/psr7/tree/1.9.0"
->>>>>>> c358bc97b396d841cc7ec2b75102b5a68468ed2b
             },
             "funding": [
                 {
@@ -334,11 +313,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2022-03-20T21:51:18+00:00"
-=======
             "time": "2022-06-20T21:43:03+00:00"
->>>>>>> c358bc97b396d841cc7ec2b75102b5a68468ed2b
         },
         {
             "name": "italodeveloper/guzzle-zend",
@@ -574,8 +549,6 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
-<<<<<<< HEAD
-=======
         },
         {
             "name": "symfony/polyfill-intl-idn",
@@ -904,7 +877,6 @@
                 }
             ],
             "time": "2020-10-23T09:01:57+00:00"
->>>>>>> c358bc97b396d841cc7ec2b75102b5a68468ed2b
         }
     ],
     "packages-dev": [
@@ -1374,10 +1346,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-<<<<<<< HEAD
-    "plugin-api-version": "2.2.0"
-}
-=======
     "plugin-api-version": "2.3.0"
 }
->>>>>>> c358bc97b396d841cc7ec2b75102b5a68468ed2b
