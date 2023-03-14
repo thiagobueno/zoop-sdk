@@ -22,6 +22,7 @@ Você pode acessar a documentação oficial da Zoop acessando esse [link](https:
   - [Criando o comprador dentro do marketplace configurado.](#criando-o-comprador-dentro-do-marketplace-configurado)
   - [Listando todos os compradores do Markeplace](#listando-todos-os-compradores-do-markeplace)
   - [Recuperando detalhes do comprador](#recuperando-detalhes-do-comprador)
+  - [Atualizando dados do comprador](#atualizando-dados-do-comprador)
   - [Deletando comprador do Marketplace](#deletando-comprador-do-marketplace)
 - [Transferências](#transferências)
   - [Listar transferências por seller](#listar-transferências-por-seller)
@@ -225,6 +226,19 @@ try {
 ```php
 try {
     $comprador = $client->getBuyer('5345634635');
+    print_r($comprador);
+} catch(\Exception $e){
+    echo $e->getMessage() . PHP_EOL;
+}
+```
+
+#### Atualizando dados do comprador
+
+```php
+try {
+    $comprador = $client->updateBuyer('5345634635', [
+        'first_name' => 'João Das Neves'
+    ]);
     print_r($comprador);
 } catch(\Exception $e){
     echo $e->getMessage() . PHP_EOL;

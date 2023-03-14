@@ -49,8 +49,7 @@ class Buyers extends Zoop
     /**
      * getAllBuyers function
      *
-     * Lista todos os usuarios do marketplace
-     * ('não realiza associação com o vendedor')
+     * Lista todos os usuarios do marketplace ('não realiza associação com o vendedor')
      *
      * @return bool|array
      * @throws \Exception
@@ -72,10 +71,37 @@ class Buyers extends Zoop
     }
 
     /**
+     * function updateBuyer
+     *
+     * Atualiza os dados do usuario associado ao id passado como parametro.
+     *
+     * @param string $userId
+     * @param array $user
+     *
+     * @return bool|array
+     * @throws \Exception
+     */
+    public function updateBuyer($userId, array $user)
+    {
+        try {
+            $request = $this->configurations['guzzle']->request(
+                'PUT', '/v1/marketplaces/'. $this->configurations['marketplace']. '/buyers/' . $userId,
+                ['json' => $user]
+            );
+            $response = \json_decode($request->getBody()->getContents(), true);
+            if($response && is_array($response)){
+                return $response;
+            }
+            return false;
+        } catch (\Exception $e){            
+            return $this->ResponseException($e);
+        }
+    }
+
+    /**
      * function getBuyer
      *
-     * Pega os dados do usuario associado
-     * ao id passado como parametro.
+     * Pega os dados do usuario associado ao id passado como parametro.
      *
      * @param string $userId
      *
@@ -101,8 +127,7 @@ class Buyers extends Zoop
     /**
      * function deleteBuyer
      *
-     * Delta um usuario do marketplace utilizando como parametro
-     * seu id.
+     * Delta um usuario do marketplace utilizando como parametro seu id.
      *
      * @param $userId
      *

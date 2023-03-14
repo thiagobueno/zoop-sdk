@@ -10,8 +10,8 @@ use Zoop\Zoop;
  * da zoop.
  * 
  * @package Zoop\Payment
- * @author italodeveloper <italoaraujo788@gmail.com>
- * @version 1.0.0
+ * @author thiago@nerdetcetera.com
+ * @version 1.4
  */
 class Ticket extends Zoop
 {
