@@ -1,7 +1,7 @@
 <?php
 namespace Zoop\Resources\MarketPlace;
 
-use Zoop\Zoop;
+use Zoop\Core\Zoop;
 /**
  * Transactions class
  * 
@@ -9,7 +9,7 @@ use Zoop\Zoop;
  * dentro do marketplace e pode ser utilizada para consultar por exemplos
  * boletos (Tickets).
  * 
- * @package Zoop\Marketplace
+ * @package Zoop\Resources\MarketPlace
  * @author Thiago - thiago@nerdetcetera.com
  * @version 1.6.3
  */

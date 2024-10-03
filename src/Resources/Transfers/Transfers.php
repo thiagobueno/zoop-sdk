@@ -7,7 +7,7 @@ use Zoop\Zoop;
  * 
  * Essa classe é responsável por listar as transferênscias do usuário
  * 
- * @package Zoop\Transfers
+ * @package Zoop\Resources\Transfers
  * @author thiago@nerdetcetera.com
  * @version 1.3
  */

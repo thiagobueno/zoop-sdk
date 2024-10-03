@@ -9,7 +9,7 @@ use Zoop\Zoop;
  * estatiocos e extrair os dados de interesse final de pagamento
  * da zoop.
  * 
- * @package Zoop\Payment
+ * @package Zoop\Resources\Payment
  * @author thiago@nerdetcetera.com
  * @version 1.6
  */

@@ -8,7 +8,7 @@ use Zoop\Zoop;
  * Essa classe é resposavel por lidar com os usuarios
  * dentro do marketplace ao nivel do marketplace zoop.
  * 
- * @package Zoop\MarketPlace
+ * @package Zoop\Resources\MarketPlace
  * @author Thiago - thiago@nerdetcetera.com
  * @version 1.6.3
  */

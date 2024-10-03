@@ -16,7 +16,7 @@ class ZoopConfig
     {
         $configurations = [
             'marketplace' => $marketplace,
-            'gatway' => 'zoop',
+            'gateway' => 'zoop',
             'base_url' => 'https://api.zoop.ws',
             'auth' => [
                 'on_behalf_of' => $vendedor,

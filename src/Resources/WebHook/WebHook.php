@@ -10,7 +10,7 @@ use Zoop\Zoop;
  * e retornando da melhor forma os dados pegos
  * pelo escutador.
  *
- * @package Zoop\WebHook
+ * @package Zoop\Resources\WebHook
  * @author Thiago - thiago@nerdetcetera.com
  * @version 1.6.3
  */

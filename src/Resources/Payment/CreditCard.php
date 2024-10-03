@@ -9,7 +9,7 @@ use Zoop\Zoop;
  * utilizando o cartão de credito, preparando e hidratando
  * o mesmo com os dados estaticos.
  * 
- * @package Zoop\Payment
+ * @package Zoop\Resources\Payment
  * @author Thiago - thiago@nerdetcetera.com
  * @version 1.6.3
  */
