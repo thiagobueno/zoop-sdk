@@ -11,7 +11,7 @@ use Zoop\Zoop;
  * 
  * @package Zoop\Payment
  * @author thiago@nerdetcetera.com
- * @version 1.4
+ * @version 1.6
  */
 class Ticket extends Zoop
 {
@@ -31,19 +31,21 @@ class Ticket extends Zoop
      * @param string $userId
      * @return array
      */
-    private function prepareTicket(array $ticket, $userId)
+    private function prepareTicket(array $ticket, $userId, $payment_type)
     {
         return [
             'amount' => $ticket['amount'],
             'currency' => 'BRL',
             'logo' => array_key_exists('logo', $ticket) ? $ticket['logo'] : null,
             'description' => $ticket['description'],
-            'payment_type' => 'boleto',
+            'payment_type' => $payment_type,
             'payment_method' => [
                 'top_instructions' => $ticket['top_instructions'],
                 'body_instructions' => $ticket['body_instructions'],
                 'expiration_date' => $ticket['expiration_date'],
                 'payment_limit_date' => $ticket['payment_limit_date'],
+                'due_at' => $ticket['due_at'],
+                'payment_limit_at' => $ticket['payment_limit_at'],
                 'billing_instructions' => [
                     'late_fee' => array_key_exists('late_fee', $ticket) ? $ticket['late_fee'] : null,
                     'interest' => array_key_exists('interest', $ticket) ? $ticket['interest'] : null,
@@ -75,13 +77,13 @@ class Ticket extends Zoop
      * @return array|bool
      * @throws \Exception
      */
-    private function processTicket(array $ticket, $userId, $referenceId = null)
+    private function processTicket(array $ticket, $userId, $referenceId = null, $payment_type = 'boleto')
     {
         if(!is_null($referenceId)){
             $ticket['reference_id'] = $referenceId;
         }
         try {
-            $ticket = $this->prepareTicket($ticket, $userId);
+            $ticket = $this->prepareTicket($ticket, $userId, $payment_type);
             $request = $this->configurations['guzzle']->request(
                 'POST', '/v1/marketplaces/'. $this->configurations['marketplace']. '/transactions', 
                 ['json' => $ticket]
@@ -90,7 +92,7 @@ class Ticket extends Zoop
             if($response && is_array($response)){
                 return [
                     'id' => $response['id'],
-                    'ticketId' => $response['payment_method']['id'],
+                    'ticketId' => $payment_type=='boleto' ? $response['payment_method']['id'] : $response['id'],
                     'status' => $response['status'],
                 ];
             }
@@ -110,14 +112,15 @@ class Ticket extends Zoop
      * @param array $ticket
      * @param string $userId
      * @param null|string $referenceId
+     * @param string $payment_type
      *
      * @return array|bool
      * @throws \Exception
      */
-    public function generateTicket(array $ticket, $userId, $referenceId = null)
+    public function generateTicket(array $ticket, $userId, $referenceId = null, $payment_type = 'boleto')
     {
         try {
-            $generatedTicket = $this->processTicket($ticket, $userId, $referenceId);
+            $generatedTicket = $this->processTicket($ticket, $userId, $referenceId, $payment_type);
             $request = $this->configurations['guzzle']->request(
                 'GET', '/v1/marketplaces/'. $this->configurations['marketplace']. '/boletos/' . $generatedTicket['ticketId']
             );
@@ -127,8 +130,10 @@ class Ticket extends Zoop
                     'payment' => array(
                         'id' => $generatedTicket['id'],
                         'ticketId' => $generatedTicket['ticketId'],
-                        'url' => $response['url'],
+                        'url' => $payment_type=='boleto' ? $response['url'] : null,
                         'barcode' => $response['barcode'],
+                        'digitable_line' => $payment_type=='boleto' ? null : $response['digitable_line'],
+                        'pix' => $payment_type=='boleto' ? null : $response['emv'],
                         'status' => $generatedTicket['status']
                     ),
                     'userId' => $userId

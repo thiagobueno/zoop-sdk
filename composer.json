@@ -18,15 +18,11 @@
         "optimize-autoloader": true
     },
     "require": {
-        "php": ">=5.6",
+        "php": ">=7.2",
         "ext-curl": "*",
         "ext-json": "*",
         "psr/log": "^1.1",
-        "guzzlehttp/guzzle": ">=6.2",
-        "italodeveloper/guzzle-zend": "^1.2"
-    },
-    "require-dev": {
-        "zendframework/zend-http": ">=2.5"
+        "guzzlehttp/guzzle": ">=7.0"
     },
     "autoload": {
         "psr-4": {

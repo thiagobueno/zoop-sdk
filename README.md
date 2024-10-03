@@ -1,4 +1,4 @@
-![alt text](https://zoop.com.br/wp-content/themes/zoop/img/logo.svg "Zoop")
+![alt text](https://cdn.sanity.io/images/7njuxpnn/production/786ae0560bafc67c2430653b3ff7ad274129e262-116x38.svg "Zoop")
 
 # Introdução - Zoop SDK - PHP :elephant:
 
@@ -11,8 +11,9 @@ Você pode acessar a documentação oficial da Zoop acessando esse [link](https:
 - [Instalação](#instalação)
 - [Configuração](#configuração)
 - [Transações](#transações)
-  - [Criando pagamento com cartão de credito.](#criando-pagamento-com-cartão-de-credito)
-  - [Criando pagamento com boleto.](#criando-pagamento-com-boleto)
+  - [Criando pagamento com Cartão de Crédito.](#criando-pagamento-com-cartão-de-crédito)
+  - [Criando pagamento com Boleto.](#criando-pagamento-com-Boleto)
+  - [Criando pagamento com Boleto Pix.](#criando-pagamento-com-boleto-pix)
   - [Listando e tratando trasações da Zoop.](#listando-e-tratando-trasações-da-zoop)
   - [Obtendo dados de uma transação.](#obtendo-dados-de-uma-transação)
 - [Vendedores](#vendedores)
@@ -65,7 +66,7 @@ $client = new ZoopClient(
 
 ## Transações
 
-#### Criando pagamento com cartão de credito.
+#### Criando pagamento com Cartão de Crédito.
 
 O segundo parâmetro passado para SDK é opcional e pode ser utilizado para guardar na zoop (e recuperar posteriormente via webhook) o id do pagamento local na sua aplicação.
 
@@ -92,7 +93,7 @@ try {
 }
 ```
 
-#### Criando pagamento com boleto.
+#### Criando pagamento com Boleto.
 
 Para gerar um Boleto primeiro você deve registrar um [comprador](#compradores) e adicioná-lo no lugar de ID_DO_COMPRADOR
 
@@ -127,6 +128,51 @@ try {
             'limit_date' => (string)date('Y-m-d'),
         ],
     ),  'ID_DO_COMPRADOR', 'SEU_ID_VENDA');
+    print_r($boleto);
+} catch(\Exception $e){
+    echo $e->getMessage() . PHP_EOL;
+}
+```
+
+#### Criando pagamento com Boleto Pix.
+
+Para gerar um Boleto primeiro você deve registrar um [comprador](#compradores) e adicioná-lo no lugar de ID_DO_COMPRADOR
+
+SEU_ID_VENDA é um ID gerado pela sua aplicação.
+
+O valor deve ser um número inteiro positivo em centavos, por exemplo, 4950 para R$ 49,50
+
+Aplicando multa, juros e descontos, você pode verificar todas as opções e regras em https://docs.zoop.co/docs/multa-juros-e-descontos
+
+Você precisa passar 'bolepix' depois do SEU_ID_VENDA, no retornon não terá url, e com barcode, digitable_line e pix você consegue montar seu boleto.
+
+Saiba mais sobre [Boleto com Pix](https://ajuda.zoop.com.br/hc/pt-br/articles/23610590491547-O-que-%C3%A9-o-Boleto-com-Pix-e-suas-vantagens)
+
+```php
+try {
+    $boleto = $client->generateTicket(array(
+        'amount' => 4950,
+        'logo' => 'https://dashboard.zoop.com.br/assets/imgs/logo-zoop.png',
+        'description' => 'Pagamento Zoop',
+        'top_instructions' => 'Instruções de pagamento',
+        'body_instructions' => 'Não receber após a data de vencimento.',
+        'expiration_date' => (string)date('Y-m-d'),
+        'payment_limit_date' => (string)date('Y-m-d'),
+        'late_fee' => [
+            'mode' => 'PERCENTAGE',
+            'percentage' => 2
+        ],
+        'interest' => [
+            'mode' => 'MONTHLY_PERCENTAGE',
+            'percentage' => 1,
+            'start_date' => (string)date('Y-m-d'),
+        ],
+        'discount' => [
+            'mode' => 'FIXED',
+            'amount' => 100,
+            'limit_date' => (string)date('Y-m-d'),
+        ],
+    ),  'ID_DO_COMPRADOR', 'SEU_ID_VENDA', 'bolepix');
     print_r($boleto);
 } catch(\Exception $e){
     echo $e->getMessage() . PHP_EOL;
