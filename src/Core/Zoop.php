@@ -1,5 +1,5 @@
 <?php
-namespace Zoop;
+namespace Zoop\Core;
 
 /**
  * abstract Zoop class
@@ -12,8 +12,8 @@ namespace Zoop;
  * Zoop\ZoopClient que realiza todas as operações do pacote.
  * 
  * @package Zoop
- * @author italodeveloper <italoaraujo788@gmail.com>
- * @version 1.0.0
+ * @author Thiago - thiago@nerdetcetera.com
+ * @version 1.6.3
  */
 abstract class Zoop
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Zoop\WebHook;
+namespace Zoop\Resources\WebHook;
 
 use Zoop\Zoop;
 /**
@@ -11,8 +11,8 @@ use Zoop\Zoop;
  * pelo escutador.
  *
  * @package Zoop\WebHook
- * @author italodeveloper <italoaraujo788@gmail.com>
- * @version 3.0.2
+ * @author Thiago - thiago@nerdetcetera.com
+ * @version 1.6.3
  */
 class WebHook extends Zoop 
 {

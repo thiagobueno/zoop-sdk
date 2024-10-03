@@ -1,5 +1,5 @@
 <?php
-namespace Zoop\Payment;
+namespace Zoop\Resources\Payment;
 
 use Zoop\Zoop;
 /**
@@ -10,8 +10,8 @@ use Zoop\Zoop;
  * o mesmo com os dados estaticos.
  * 
  * @package Zoop\Payment
- * @author italodeveloper <italoaraujo788@gmail.com>
- * @version 1.0.0
+ * @author Thiago - thiago@nerdetcetera.com
+ * @version 1.6.3
  */
 class CreditCard extends Zoop 
 {

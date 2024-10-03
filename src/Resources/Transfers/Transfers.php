@@ -1,5 +1,5 @@
 <?php
-namespace Zoop\Transfers;
+namespace Zoop\Resources\Transfers;
 
 use Zoop\Zoop;
 /**

@@ -36,12 +36,9 @@ use Zoop\Zoop;
  * @method \Zoop\Transfers\Transfers getTransfer(string $transferId)
  * @method \Zoop\Transfers\Transfers getTransactions(string $transferId)
  * 
- * @author italodeveloper <italoaraujo788@gmail.com>
  * @package ZoopClient
- * @version 1.0.0
- * 
- * @author thiago@nerdetcetera.com
- * @version 1.3
+ * @author Thiago - thiago@nerdetcetera.com
+ * @version 1.6.3
  */
 class ZoopClient extends Zoop 
 {

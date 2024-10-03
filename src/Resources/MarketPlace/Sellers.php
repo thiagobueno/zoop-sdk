@@ -1,5 +1,5 @@
 <?php
-namespace Zoop\MarketPlace;
+namespace Zoop\Resources\MarketPlace;
 
 use Zoop\Zoop;
 /**
@@ -9,8 +9,8 @@ use Zoop\Zoop;
  * dentro do marketplace ao nivel do marketplace zoop.
  * 
  * @package Zoop\MarketPlace
- * @author italodeveloper <italoaraujo788@gmail.com>
- * @version 1.0.0
+ * @author Thiago - thiago@nerdetcetera.com
+ * @version 1.6.3
  */
 class Sellers extends Zoop
 {

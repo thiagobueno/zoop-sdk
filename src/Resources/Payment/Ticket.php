@@ -1,5 +1,5 @@
 <?php
-namespace Zoop\Payment;
+namespace Zoop\Resources\Payment;
 
 use Zoop\Zoop;
 /**

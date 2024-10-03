@@ -1,5 +1,5 @@
 <?php
-namespace Zoop\Marketplace;
+namespace Zoop\Resources\MarketPlace;
 
 use Zoop\Zoop;
 /**
@@ -10,8 +10,8 @@ use Zoop\Zoop;
  * boletos (Tickets).
  * 
  * @package Zoop\Marketplace
- * @author italodeveloper <italo.araujo@gmail.com>
- * @version 1.0.0
+ * @author Thiago - thiago@nerdetcetera.com
+ * @version 1.6.3
  */
 class Transactions extends Zoop
 {
