@@ -158,6 +158,8 @@ try {
         'body_instructions' => 'Não receber após a data de vencimento.',
         'expiration_date' => (string)date('Y-m-d'),
         'payment_limit_date' => (string)date('Y-m-d'),
+        'due_at' => (string)date('Y-m-d'),
+        'payment_limit_at' => null,
         'late_fee' => [
             'mode' => 'PERCENTAGE',
             'percentage' => 2

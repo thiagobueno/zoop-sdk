@@ -92,7 +92,6 @@ class Ticket extends Zoop
             if($response && is_array($response)){
                 return [
                     'id' => $response['id'],
-                    'ticketId' => $payment_type=='boleto' ? $response['payment_method']['id'] : $response['id'],
                     'status' => $response['status'],
                 ];
             }
@@ -128,13 +127,12 @@ class Ticket extends Zoop
             if($response && is_array($response)){
                 return array(
                     'payment' => array(
-                        'id' => $generatedTicket['id'],
-                        'ticketId' => $generatedTicket['ticketId'],
+                        'id' => $response['id'],
                         'url' => $payment_type=='boleto' ? $response['payment_method']['url'] : null,
                         'barcode' => $response['payment_method']['barcode'],
                         'digitable_line' => $payment_type=='boleto' ? null : $response['payment_method']['digitable_line'],
                         'pix' => $payment_type=='boleto' ? null : $response['payment_method']['emv'],
-                        'status' => $generatedTicket['status']
+                        'status' => $response['status']
                     ),
                     'userId' => $userId
                 );
