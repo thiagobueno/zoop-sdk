@@ -1,7 +1,7 @@
 <?php
 namespace Zoop\Resources\WebHook;
 
-use Zoop\Zoop;
+use Zoop\Core\Zoop;
 /**
  * WebHook class
  *

@@ -1,7 +1,7 @@
 <?php
 namespace Zoop\Resources\Payment;
 
-use Zoop\Zoop;
+use Zoop\Core\Zoop;
 /**
  * CreditCard class
  *

@@ -1,9 +1,9 @@
 <?php
 namespace Zoop\Resources\MarketPlace;
 
-use Zoop\Zoop;
+use Zoop\Core\Zoop;
 /**
- * Class Sellers
+ * Sellers class
  * 
  * Essa classe é resposavel por lidar com os usuarios
  * dentro do marketplace ao nivel do marketplace zoop.

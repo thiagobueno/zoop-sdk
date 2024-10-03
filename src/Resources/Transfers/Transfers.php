@@ -1,9 +1,9 @@
 <?php
 namespace Zoop\Resources\Transfers;
 
-use Zoop\Zoop;
+use Zoop\Core\Zoop;
 /**
- * Class Transfers
+ * Transfers class
  * 
  * Essa classe é responsável por listar as transferênscias do usuário
  * 
