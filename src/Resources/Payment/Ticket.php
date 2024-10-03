@@ -121,7 +121,7 @@ class Ticket extends Zoop
         try {
             $generatedTicket = $this->processTicket($ticket, $userId, $referenceId, $payment_type);
             $request = $this->configurations['guzzle']->request(
-                'GET', '/v1/marketplaces/'. $this->configurations['marketplace']. '/transactions/' . $generatedTicket['ticketId']
+                'GET', '/v1/marketplaces/'. $this->configurations['marketplace']. '/transactions/' . $generatedTicket['id']
             );
             $response = \json_decode($request->getBody()->getContents(), true);
             if($response && is_array($response)){
