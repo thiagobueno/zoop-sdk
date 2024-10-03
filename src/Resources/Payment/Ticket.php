@@ -130,10 +130,10 @@ class Ticket extends Zoop
                     'payment' => array(
                         'id' => $generatedTicket['id'],
                         'ticketId' => $generatedTicket['ticketId'],
-                        'url' => $payment_type=='boleto' ? $response['url'] : null,
-                        'barcode' => $response['barcode'],
-                        'digitable_line' => $payment_type=='boleto' ? null : $response['digitable_line'],
-                        'pix' => $payment_type=='boleto' ? null : $response['emv'],
+                        'url' => $payment_type=='boleto' ? $response['payment_method']['url'] : null,
+                        'barcode' => $response['payment_method']['barcode'],
+                        'digitable_line' => $payment_type=='boleto' ? null : $response['payment_method']['digitable_line'],
+                        'pix' => $payment_type=='boleto' ? null : $response['payment_method']['emv'],
                         'status' => $generatedTicket['status']
                     ),
                     'userId' => $userId
