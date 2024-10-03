@@ -1,7 +1,7 @@
 <?php
 namespace Zoop;
 
-use Zoop\Zoop;
+use Zoop\Core\Zoop;
 /**
  * ZoopClient class
  *
@@ -12,29 +12,29 @@ use Zoop\Zoop;
  * são registrados dentro da classe Abstrata extendida pelo cliente
  * Zoop\Zoop).
  * 
- * @method \Zoop\MarketPlace\Buyers createBuyer(array $user)
- * @method \Zoop\MarketPlace\Buyers getAllBuyers()
- * @method \Zoop\MarketPlace\Buyers getBuyer(string $id)
- * @method \Zoop\MarketPlace\Buyers deleteBuyer(string $id)
+ * @method \Zoop\Resources\MarketPlace\Buyers createBuyer(array $user)
+ * @method \Zoop\Resources\MarketPlace\Buyers getAllBuyers()
+ * @method \Zoop\Resources\MarketPlace\Buyers getBuyer(string $id)
+ * @method \Zoop\Resources\MarketPlace\Buyers deleteBuyer(string $id)
  * 
- * @method \Zoop\MarketPlace\Transactions getAllTransactions()
- * @method \Zoop\MarketPlace\Transactions getTransaction(string $transaction)
+ * @method \Zoop\Resources\MarketPlace\Transactions getAllTransactions()
+ * @method \Zoop\Resources\MarketPlace\Transactions getTransaction(string $transaction)
  * 
- * @method \Zoop\MarketPlace\Sellers getAllSellers()
- * @method \Zoop\MarketPlace\Sellers getSeller(string $sallerId)
+ * @method \Zoop\Resources\MarketPlace\Sellers getAllSellers()
+ * @method \Zoop\Resources\MarketPlace\Sellers getSeller(string $sallerId)
  * 
- * @method \Zoop\Payment\CreditCard payCreditCard(array $card, string $referenceId = null)
- * @method \Zoop\Payment\Ticket generateTicket(array $ticket, string $userId, string $referenceId = null)
+ * @method \Zoop\Resources\Payment\CreditCard payCreditCard(array $card, string $referenceId = null)
+ * @method \Zoop\Resources\Payment\Ticket generateTicket(array $ticket, string $userId, string $referenceId = null)
  * 
- * @method \Zoop\WebHook\WebHook getAllWebHooks()
- * @method \Zoop\WebHook\WebHook createWebHook(string $url, string $description)
- * @method \Zoop\WebHook\WebHook deleteWebHook(string $webhookId)
- * @method \Zoop\WebHook\WebHook webHookListen()
+ * @method \Zoop\Resources\WebHook\WebHook getAllWebHooks()
+ * @method \Zoop\Resources\WebHook\WebHook createWebHook(string $url, string $description)
+ * @method \Zoop\Resources\WebHook\WebHook deleteWebHook(string $webhookId)
+ * @method \Zoop\Resources\WebHook\WebHook webHookListen()
  *
- * @method \Zoop\Transfers\Transfers getTransfers(string $sellerId)
- * @method \Zoop\Transfers\Transfers getAllTransfers()
- * @method \Zoop\Transfers\Transfers getTransfer(string $transferId)
- * @method \Zoop\Transfers\Transfers getTransactions(string $transferId)
+ * @method \Zoop\Resources\Transfers\Transfers getTransfers(string $sellerId)
+ * @method \Zoop\Resources\Transfers\Transfers getAllTransfers()
+ * @method \Zoop\Resources\Transfers\Transfers getTransfer(string $transferId)
+ * @method \Zoop\Resources\Transfers\Transfers getTransactions(string $transferId)
  * 
  * @package ZoopClient
  * @author Thiago - thiago@nerdetcetera.com
